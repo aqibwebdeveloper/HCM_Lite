@@ -1,47 +1,166 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login | HCM Lite</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <main class="login-page">
+
         <section class="login-art">
-            <div class="brand"><span class="brand-icon">▣</span> HCM Lite</div>
+            <div class="brand">
+                <span class="brand-icon">▣</span> HCM Lite
+            </div>
+
             <h1>Simple HR Management</h1>
-            <p>Manage your team, attendance, leave requests and salary slips in one modern workspace.</p>
-            <div class="login-illustration" aria-hidden="true">▦ 👥</div>
-        </section>
-        <section class="login-panel">
-            <div class="login-box">
-                <div class="tabs"><a class="active" href="#login">Login</a><a href="#setup">First Time Setup</a></div>
-                <h2 id="login">Welcome back</h2>
-                <p class="muted">Sign in to your account</p>
-                <form onsubmit="return false">
-                    <div class="field"><label for="email">Email address</label><input id="email" type="email"
-                            placeholder="you@company.com" required></div>
-                    <div class="field"><label for="password">Password</label><input id="password" type="password"
-                            placeholder="Enter password" required></div><button class="btn" type="submit">Login</button>
-                </form>
-                <p class="hint">UI preview: Login functionality will be connected later. <a href="pages/admin.html"
-                        style="color:#315cf5">Preview Admin Dashboard →</a></p>
-                <div class="card" id="setup" style="margin-top:28px">
-                    <h2>First Time Setup</h2>
-                    <div class="field"><label for="company">Company name</label><input id="company"
-                            placeholder="Your company"></div>
-                    <div class="field"><label for="admin-email">Admin email</label><input id="admin-email" type="email"
-                            placeholder="admin@company.com"></div>
-                    <div class="field"><label for="admin-pass">Admin password</label><input id="admin-pass"
-                            type="password" placeholder="Create password"></div>
-                    <p class="hint">Setup form is a visual placeholder.</p>
-                </div>
+
+            <p>
+                Manage your team, attendance, leave requests
+                and salary slips in one modern workspace.
+            </p>
+
+            <div class="login-illustration" aria-hidden="true">
+                ▦ 👥
             </div>
         </section>
-    </main>
-</body>
 
+        <section class="login-panel">
+            <div class="login-box">
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <a href="#login" id="login-tab" class="active">
+                        Login
+                    </a>
+
+                    <a href="#setup" id="setup-tab">
+                        First Time Setup
+                    </a>
+                </div>
+
+                <!-- LOGIN SECTION -->
+                <div id="login-section">
+
+                    <h2>Welcome back</h2>
+                    <p class="muted">Sign in to your account</p>
+
+                    <form id="login-form">
+
+                        <div class="field">
+                            <label for="email">Email address</label>
+
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="you@company.com"
+                                autocomplete="username"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="password">Password</label>
+
+                            <input
+                                id="password"
+                                type="password"
+                                placeholder="Enter password"
+                                autocomplete="current-password"
+                                required
+                            >
+                        </div>
+
+                        <p id="login-error" class="form-message"
+                           role="alert" aria-live="polite"></p>
+
+                        <button class="btn" type="submit">
+                            Login
+                        </button>
+
+                    </form>
+                </div>
+
+                <!-- FIRST TIME SETUP SECTION -->
+                <div id="setup-section" hidden>
+
+                    <h2>First Time Setup</h2>
+
+                    <p class="muted">
+                        Create your company and Admin account.
+                    </p>
+
+                    <form id="setup-form">
+
+                        <div class="field">
+                            <label for="company">Company name</label>
+
+                            <input
+                                id="company"
+                                type="text"
+                                placeholder="Your company"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="admin-name">Admin name</label>
+
+                            <input
+                                id="admin-name"
+                                type="text"
+                                placeholder="Admin full name"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="admin-email">Admin email</label>
+
+                            <input
+                                id="admin-email"
+                                type="email"
+                                placeholder="admin@company.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="admin-pass">Admin password</label>
+
+                            <input
+                                id="admin-pass"
+                                type="password"
+                                placeholder="Minimum 6 characters"
+                                minlength="6"
+                                autocomplete="new-password"
+                                required
+                            >
+                        </div>
+
+                        <p id="setup-error" class="form-message"
+                           role="alert" aria-live="polite"></p>
+
+                        <button class="btn" type="submit">
+                            Create Admin Account
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
 </html>

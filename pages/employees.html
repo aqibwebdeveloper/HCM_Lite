@@ -1,132 +1,290 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#101f45">
+
     <title>Employees | HCM Lite</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+
     <div class="mobile-overlay"></div>
+
     <div class="app">
-        <aside class="sidebar" id="sidebar"><a class="brand" href="admin.html"><span class="brand-icon">▣</span> HCM
-                Lite</a>
-            <nav class="nav" aria-label="Main navigation"><a href="admin.html" class=""><span
-                        aria-hidden="true">▦</span> Dashboard</a><a href="employees.html" class="active"><span
-                        aria-hidden="true">♙</span> Employees</a><a href="leaves.html" class=""><span
-                        aria-hidden="true">▤</span> Leaves</a><a href="settings.html" class=""><span
-                        aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class=""><span
-                        aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class=""><span
-                        aria-hidden="true">▣</span> Payslip</a></nav>
-            <div class="sidebar-foot"><strong>● Demo Admin</strong><small>UI Preview</small>
-                <p><a href="../index.html">↪ Logout / Login</a></p>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a class="brand" href="admin.html">
+                <span class="brand-icon">▣</span> HCM Lite
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+
+                <a href="admin.html">
+                    <span aria-hidden="true">▦</span> Dashboard
+                </a>
+
+                <a href="employees.html" class="active">
+                    <span aria-hidden="true">♙</span> Employees
+                </a>
+
+                <a href="leaves.html">
+                    <span aria-hidden="true">▤</span> Leaves
+                </a>
+
+                <a href="settings.html">
+                    <span aria-hidden="true">⚙</span> Settings
+                </a>
+
+                <a href="employee.html">
+                    <span aria-hidden="true">◷</span> Employee View
+                </a>
+
+                <a href="payslip.html">
+                    <span aria-hidden="true">▣</span> Payslip
+                </a>
+
+            </nav>
+
+            <div class="sidebar-foot">
+                <strong>● <span id="sidebar-admin-name">Admin</span></strong>
+                <small>Administrator</small>
+
+                <p>
+                    <a href="../index.html" id="logout-btn">↪ Logout</a>
+                </p>
             </div>
+
         </aside>
+
+        <!-- Main Content -->
         <div class="main">
-            <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
-                    aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
-                    aria-label="Search">
-                <div class="top-right"><span>🔔</span>
-                    <div class="avatar">A</div><strong>Admin</strong>
+
+            <header class="topbar">
+
+                <button
+                    class="menu-toggle"
+                    data-menu
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="sidebar">
+                    ☰
+                </button>
+
+                <input
+                    class="search"
+                    id="top-search"
+                    placeholder="Search employees..."
+                    aria-label="Search employees">
+
+                <div class="top-right">
+
+                    <span aria-hidden="true">🔔</span>
+
+                    <div class="avatar" id="admin-avatar">A</div>
+
+                    <strong id="top-admin-name">Admin</strong>
+
                 </div>
+
             </header>
+
             <main class="content">
+
+                <!-- Page Heading -->
                 <div class="heading">
+
                     <div>
                         <h1>Employees</h1>
                         <p class="muted">Manage your team members.</p>
-                    </div><a class="btn" href="#add">+ Add Employee</a>
+                    </div>
+
+                    <a class="btn" href="#add">+ Add Employee</a>
+
                 </div>
-                <div class="toast">Example employees shown for design preview only.</div>
-                <div class="filters"><select aria-label="Department">
-                        <option>All Departments</option>
-                        <option>IT</option>
-                        <option>HR</option>
-                        <option>Marketing</option>
-                    </select><input placeholder="Search employees..." aria-label="Search employees"></div>
+
+                <!-- Feedback Message -->
+                <p
+                    id="employee-message"
+                    class="form-message"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+                <!-- Search and Filter -->
+                <div class="filters">
+
+                    <select id="department-filter" aria-label="Filter by department">
+                        <option value="">All Departments</option>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Finance">Finance</option>
+                    </select>
+
+                    <input
+                        id="employee-search"
+                        type="search"
+                        placeholder="Search by name or email..."
+                        aria-label="Search employees">
+
+                </div>
+
+                <!-- Employee Table -->
                 <section class="card">
-                    <h2>Team Members</h2>
+
+                    <h2>
+                        Team Members
+                        (<span id="employee-count">0</span>)
+                    </h2>
+
                     <div class="table-wrap">
+
                         <table>
+
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Department</th>
+                                    <th>Monthly Salary</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01</td>
-                                    <td><strong>Ali Khan</strong></td>
-                                    <td>ali@example.com</td>
-                                    <td>IT</td>
-                                    <td><span class="pill">Active</span></td>
-                                    <td><button class="btn outline small">Edit</button> <button
-                                            class="btn danger small">Delete</button></td>
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td><strong>Sara Ahmed</strong></td>
-                                    <td>sara@example.com</td>
-                                    <td>HR</td>
-                                    <td><span class="pill">Active</span></td>
-                                    <td><button class="btn outline small">Edit</button> <button
-                                            class="btn danger small">Delete</button></td>
-                                </tr>
-                                <tr>
-                                    <td>03</td>
-                                    <td><strong>Usman Tariq</strong></td>
-                                    <td>usman@example.com</td>
-                                    <td>Marketing</td>
-                                    <td><span class="pill">Active</span></td>
-                                    <td><button class="btn outline small">Edit</button> <button
-                                            class="btn danger small">Delete</button></td>
-                                </tr>
-                                <tr>
-                                    <td>04</td>
-                                    <td><strong>Ayesha Bilal</strong></td>
-                                    <td>ayesha@example.com</td>
-                                    <td>Finance</td>
-                                    <td><span class="pill">Active</span></td>
-                                    <td><button class="btn outline small">Edit</button> <button
-                                            class="btn danger small">Delete</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section class="card" id="add">
-                    <h2>Add New Employee</h2>
-                    <form class="form-grid" onsubmit="return false">
-                        <div class="field"><label for="name">Full name</label><input id="name" required
-                                placeholder="Employee name"></div>
-                        <div class="field"><label for="emp-email">Email</label><input id="emp-email" type="email"
-                                required placeholder="employee@company.com"></div>
-                        <div class="field"><label for="dept">Department</label><select id="dept">
-                                <option>IT</option>
-                                <option>HR</option>
-                                <option>Marketing</option>
-                                <option>Finance</option>
-                            </select></div>
-                        <div class="field"><label for="salary">Monthly salary</label><input id="salary" type="number"
-                                min="1" placeholder="50000"></div>
-                        <div class="field full"><label for="emp-password">Initial password</label><input
-                                id="emp-password" type="password" placeholder="Create login password"></div>
-                        <div class="field full"><button class="btn" type="submit">Save Employee</button></div>
-                    </form>
-                    <p class="hint">Add, edit, delete and search become functional in the JavaScript phase.</p>
-                </section>
-            </main>
-        </div>
-    </div>
-    <script src="../js/ui.js"></script>
-</body>
 
+                            <tbody id="employee-table-body">
+                                <!-- Employees will be added by JavaScript -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+                <!-- Add / Edit Employee Form -->
+                <section class="card" id="add">
+
+                    <h2 id="employee-form-heading">Add New Employee</h2>
+
+                    <form id="employee-form" class="form-grid">
+
+                        <div class="field">
+
+                            <label for="name">Full name</label>
+
+                            <input
+                                id="name"
+                                type="text"
+                                required
+                                maxlength="100"
+                                placeholder="Employee name">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="emp-email">Email</label>
+
+                            <input
+                                id="emp-email"
+                                type="email"
+                                required
+                                maxlength="254"
+                                placeholder="employee@company.com">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="dept">Department</label>
+
+                            <select id="dept" required>
+                                <option value="IT">IT</option>
+                                <option value="HR">HR</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Finance">Finance</option>
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="salary">Monthly salary (PKR)</label>
+
+                            <input
+                                id="salary"
+                                type="number"
+                                min="1"
+                                step="any"
+                                required
+                                placeholder="50000">
+
+                        </div>
+
+                        <div class="field full">
+
+                            <label for="emp-password">
+                                Initial password
+                            </label>
+
+                            <input
+                                id="emp-password"
+                                type="password"
+                                minlength="6"
+                                required
+                                autocomplete="new-password"
+                                placeholder="At least 6 characters">
+
+                            <small id="password-hint" class="hint">
+                                Employee login ke liye password create karein.
+                            </small>
+
+                        </div>
+
+                        <div class="field full">
+
+                            <button
+                                id="save-employee-btn"
+                                class="btn"
+                                type="submit">
+                                Save Employee
+                            </button>
+
+                            <button
+                                id="cancel-edit-btn"
+                                class="btn outline"
+                                type="button"
+                                hidden>
+                                Cancel Edit
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/employees.js"></script>
+
+</body>
 </html>

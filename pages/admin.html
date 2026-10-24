@@ -21,16 +21,25 @@
                         aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class=""><span
                         aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class=""><span
                         aria-hidden="true">▣</span> Payslip</a></nav>
-            <div class="sidebar-foot"><strong>● Demo Admin</strong><small>UI Preview</small>
-                <p><a href="../index.html">↪ Logout / Login</a></p>
+            <div class="sidebar-foot">
+                <strong>● <span id="sidebar-admin-name">Admin</span></strong>
+                <small>Administrator</small>
+
+                <p>
+                    <a href="#" id="logout-btn">↪ Logout</a>
+                </p>
             </div>
         </aside>
         <div class="main">
             <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
                     aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
                     aria-label="Search">
-                <div class="top-right"><span>🔔</span>
-                    <div class="avatar">A</div><strong>Admin</strong>
+                <div class="top-right">
+                    <span>🔔</span>
+
+                    <div class="avatar" id="admin-avatar">A</div>
+
+                    <strong id="top-admin-name">Admin</strong>
                 </div>
             </header>
             <main class="content">
@@ -96,7 +105,10 @@
             </main>
         </div>
     </div>
+    <script src="../js/storage.js"></script>
+    <script src="../js/auth.js"></script>
     <script src="../js/ui.js"></script>
+    <script src="../js/admin.js"></script>
 </body>
 
 </html>

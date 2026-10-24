@@ -723,3 +723,157 @@ tr:last-child td {
         background: white
     }
 }
+
+/* Login and Setup Functionality */
+
+[hidden] {
+    display: none !important;
+}
+
+.form-message {
+    color: #dc2626;
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.form-message:empty {
+    display: none;
+}
+
+.login-box input {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        width: 100%;
+    }
+
+    .login-box .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .login-box .tabs a {
+        font-size: 13px;
+    }
+}
+
+/* Employee Management Messages */
+
+.form-message {
+    color: #dc2626;
+    font-size: 14px;
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+.form-message.success {
+    color: #15803d;
+}
+
+.form-message:empty {
+    display: none;
+}
+
+#cancel-edit-btn {
+    margin-top: 8px;
+}
+
+#cancel-edit-btn[hidden] {
+    display: none !important;
+}
+
+#employee-table-body td {
+    vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+    #add {
+        scroll-margin-top: 16px;
+    }
+
+    #employee-form .field.full .btn {
+        max-width: 100%;
+    }
+}
+
+
+/* Employee Dashboard */
+
+#check-in-btn:disabled,
+#check-out-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+#attendance-table-body td,
+#leave-table-body td {
+    vertical-align: middle;
+}
+
+#employee-message.success {
+    color: #15803d;
+}
+
+#employee-message:not(:empty) {
+    padding: 8px 0;
+}
+
+@media (max-width: 600px) {
+    #attendance,
+    #apply {
+        scroll-margin-top: 16px;
+    }
+
+    #attendance .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #attendance .actions button {
+        flex: 1 1 130px;
+    }
+}
+
+/* Admin Leave Management */
+
+.leave-comment-input {
+    width: 160px;
+    max-width: 100%;
+    min-height: 55px;
+    padding: 8px;
+    border: 1px solid #d5dbea;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 13px;
+    resize: vertical;
+}
+
+#leaves-table-body td {
+    vertical-align: middle;
+}
+
+#leaves-table-body .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+#leaves-table-body .btn {
+    white-space: nowrap;
+}
+
+#leaves-message.success {
+    color: #15803d;
+}
+
+@media (max-width: 600px) {
+    .leave-comment-input {
+        width: 140px;
+    }
+}
