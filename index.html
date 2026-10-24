@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login | HCM Lite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="login-page">
+        <section class="login-art">
+            <div class="brand"><span class="brand-icon">▣</span> HCM Lite</div>
+            <h1>Simple HR Management</h1>
+            <p>Manage your team, attendance, leave requests and salary slips in one modern workspace.</p>
+            <div class="login-illustration" aria-hidden="true">▦ 👥</div>
+        </section>
+        <section class="login-panel">
+            <div class="login-box">
+                <div class="tabs"><a class="active" href="#login">Login</a><a href="#setup">First Time Setup</a></div>
+                <h2 id="login">Welcome back</h2>
+                <p class="muted">Sign in to your account</p>
+                <form onsubmit="return false">
+                    <div class="field"><label for="email">Email address</label><input id="email" type="email"
+                            placeholder="you@company.com" required></div>
+                    <div class="field"><label for="password">Password</label><input id="password" type="password"
+                            placeholder="Enter password" required></div><button class="btn" type="submit">Login</button>
+                </form>
+                <p class="hint">UI preview: Login functionality will be connected later. <a href="pages/admin.html"
+                        style="color:#315cf5">Preview Admin Dashboard →</a></p>
+                <div class="card" id="setup" style="margin-top:28px">
+                    <h2>First Time Setup</h2>
+                    <div class="field"><label for="company">Company name</label><input id="company"
+                            placeholder="Your company"></div>
+                    <div class="field"><label for="admin-email">Admin email</label><input id="admin-email" type="email"
+                            placeholder="admin@company.com"></div>
+                    <div class="field"><label for="admin-pass">Admin password</label><input id="admin-pass"
+                            type="password" placeholder="Create password"></div>
+                    <p class="hint">Setup form is a visual placeholder.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

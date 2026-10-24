@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#101f45">
+    <title>Payslip | HCM Lite</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="mobile-overlay"></div>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"><a class="brand" href="admin.html"><span class="brand-icon">▣</span> HCM
+                Lite</a>
+            <nav class="nav" aria-label="Main navigation"><a href="admin.html" class=""><span
+                        aria-hidden="true">▦</span> Dashboard</a><a href="employees.html" class=""><span
+                        aria-hidden="true">♙</span> Employees</a><a href="leaves.html" class=""><span
+                        aria-hidden="true">▤</span> Leaves</a><a href="settings.html" class=""><span
+                        aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class=""><span
+                        aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class="active"><span
+                        aria-hidden="true">▣</span> Payslip</a></nav>
+            <div class="sidebar-foot"><strong>● Demo Admin</strong><small>UI Preview</small>
+                <p><a href="../index.html">↪ Logout / Login</a></p>
+            </div>
+        </aside>
+        <div class="main">
+            <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
+                    aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
+                    aria-label="Search">
+                <div class="top-right"><span>🔔</span>
+                    <div class="avatar">A</div><strong>Admin</strong>
+                </div>
+            </header>
+            <main class="content">
+                <div class="heading">
+                    <div>
+                        <h1>Payslip</h1>
+                        <p class="muted">View and print monthly salary details.</p>
+                    </div>
+                </div>
+                <div class="toast">Illustrative salary values only. Final payslip will calculate deductions from
+                    attendance.</div>
+                <section class="payslip">
+                    <div class="slip-top">
+                        <div>
+                            <h2>HCM Lite</h2>
+                            <p class="muted">Monthly Salary Slip</p>
+                        </div>
+                        <div><strong>October 2026</strong>
+                            <p class="muted">Employee ID: EMP001</p>
+                        </div>
+                    </div>
+                    <div class="slip-cols">
+                        <section>
+                            <h3>Employee Details</h3>
+                            <p>Name: Ali Khan</p>
+                            <p>Department: IT</p>
+                            <p>Designation: Employee</p>
+                            <p>Monthly Salary: Rs. 50,000</p>
+                        </section>
+                        <section>
+                            <h3>Salary Calculation</h3>
+                            <p>Basic Salary <strong style="float:right">Rs. 50,000</strong></p>
+                            <p>Absent Days <strong style="float:right">0</strong></p>
+                            <p>Half Days <strong style="float:right">1</strong></p>
+                            <p>Deduction <strong style="float:right">Rs. 1,136.36</strong></p>
+                            <div class="total"><span>Net Salary</span><span>Rs. 48,863.64</span></div>
+                        </section>
+                    </div>
+                </section>
+                <div class="actions"><button class="btn" data-print>🖨 Print / Save as PDF</button></div>
+                <p class="hint">Print button works. Monthly salary calculation is added in the JavaScript phase.</p>
+            </main>
+        </div>
+    </div>
+    <script src="../js/ui.js"></script>
+</body>
+
+</html>

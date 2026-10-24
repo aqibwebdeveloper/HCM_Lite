@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#101f45">
+    <title>Leave Requests | HCM Lite</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="mobile-overlay"></div>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"><a class="brand" href="admin.html"><span class="brand-icon">▣</span> HCM
+                Lite</a>
+            <nav class="nav" aria-label="Main navigation"><a href="admin.html" class=""><span
+                        aria-hidden="true">▦</span> Dashboard</a><a href="employees.html" class=""><span
+                        aria-hidden="true">♙</span> Employees</a><a href="leaves.html" class="active"><span
+                        aria-hidden="true">▤</span> Leaves</a><a href="settings.html" class=""><span
+                        aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class=""><span
+                        aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class=""><span
+                        aria-hidden="true">▣</span> Payslip</a></nav>
+            <div class="sidebar-foot"><strong>● Demo Admin</strong><small>UI Preview</small>
+                <p><a href="../index.html">↪ Logout / Login</a></p>
+            </div>
+        </aside>
+        <div class="main">
+            <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
+                    aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
+                    aria-label="Search">
+                <div class="top-right"><span>🔔</span>
+                    <div class="avatar">A</div><strong>Admin</strong>
+                </div>
+            </header>
+            <main class="content">
+                <div class="heading">
+                    <div>
+                        <h1>Leave Requests</h1>
+                        <p class="muted">Review employee leave applications.</p>
+                    </div>
+                </div>
+                <div class="toast">Sample leave requests for layout preview.</div>
+                <div class="tabs"><a class="active" href="#requests">Pending</a><a href="#requests">Approved</a><a
+                        href="#requests">Rejected</a></div>
+                <section class="card" id="requests">
+                    <h2>Leave Requests</h2>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Employee</th>
+                                    <th>Type</th>
+                                    <th>Date</th>
+                                    <th>Reason</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sara Ahmed</td>
+                                    <td>Casual</td>
+                                    <td>25 Oct 2026</td>
+                                    <td>Family work</td>
+                                    <td><span class="pill pending">Pending</span></td>
+                                    <td><button class="btn success small">Approve</button> <button
+                                            class="btn danger small">Reject</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Usman Tariq</td>
+                                    <td>Sick</td>
+                                    <td>26 Oct 2026</td>
+                                    <td>Fever</td>
+                                    <td><span class="pill pending">Pending</span></td>
+                                    <td><button class="btn success small">Approve</button> <button
+                                            class="btn danger small">Reject</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Ayesha Bilal</td>
+                                    <td>Casual</td>
+                                    <td>27 Oct 2026</td>
+                                    <td>Personal work</td>
+                                    <td><span class="pill pending">Pending</span></td>
+                                    <td><button class="btn success small">Approve</button> <button
+                                            class="btn danger small">Reject</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="hint">Approval and rejection will update stored leave requests later.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="../js/ui.js"></script>
+</body>
+
+</html>

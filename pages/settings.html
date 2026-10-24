@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#101f45">
+    <title>Company Settings | HCM Lite</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="mobile-overlay"></div>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"><a class="brand" href="admin.html"><span class="brand-icon">▣</span> HCM
+                Lite</a>
+            <nav class="nav" aria-label="Main navigation"><a href="admin.html" class=""><span
+                        aria-hidden="true">▦</span> Dashboard</a><a href="employees.html" class=""><span
+                        aria-hidden="true">♙</span> Employees</a><a href="leaves.html" class=""><span
+                        aria-hidden="true">▤</span> Leaves</a><a href="settings.html" class="active"><span
+                        aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class=""><span
+                        aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class=""><span
+                        aria-hidden="true">▣</span> Payslip</a></nav>
+            <div class="sidebar-foot"><strong>● Demo Admin</strong><small>UI Preview</small>
+                <p><a href="../index.html">↪ Logout / Login</a></p>
+            </div>
+        </aside>
+        <div class="main">
+            <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
+                    aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
+                    aria-label="Search">
+                <div class="top-right"><span>🔔</span>
+                    <div class="avatar">A</div><strong>Admin</strong>
+                </div>
+            </header>
+            <main class="content">
+                <div class="heading">
+                    <div>
+                        <h1>Company Settings</h1>
+                        <p class="muted">Configure office rules and leave allowances.</p>
+                    </div>
+                </div>
+                <section class="card">
+                    <h2>Company Information & Attendance Rules</h2>
+                    <form class="form-grid" onsubmit="return false">
+                        <div class="field"><label for="company">Company name</label><input id="company"
+                                value="HCM Lite Demo"></div>
+                        <div class="field"><label for="start">Office start time</label><input id="start" type="time"
+                                value="09:00"></div>
+                        <div class="field"><label for="grace">Grace minutes</label><input id="grace" type="number"
+                                value="15" min="0"></div>
+                        <div class="field"><label for="days">Working days</label><select id="days">
+                                <option>Monday – Friday</option>
+                                <option>Monday – Saturday</option>
+                            </select></div>
+                        <div class="field"><label for="quota">Yearly leave quota</label><input id="quota" type="number"
+                                value="20" min="0"></div>
+                        <div class="field full"><button class="btn" type="submit">Save Settings</button></div>
+                    </form>
+                    <p class="hint">These values are examples; saving will be implemented using localStorage.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="../js/ui.js"></script>
+</body>
+
+</html>

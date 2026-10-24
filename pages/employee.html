@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#101f45">
+    <title>My Dashboard | HCM Lite</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="mobile-overlay"></div>
+    <div class="app">
+        <aside class="sidebar" id="sidebar"><a class="brand" href="admin.html"><span class="brand-icon">▣</span> HCM
+                Lite</a>
+            <nav class="nav" aria-label="Main navigation"><a href="admin.html" class=""><span
+                        aria-hidden="true">▦</span> Dashboard</a><a href="employees.html" class=""><span
+                        aria-hidden="true">♙</span> Employees</a><a href="leaves.html" class=""><span
+                        aria-hidden="true">▤</span> Leaves</a><a href="settings.html" class=""><span
+                        aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class="active"><span
+                        aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class=""><span
+                        aria-hidden="true">▣</span> Payslip</a></nav>
+            <div class="sidebar-foot"><strong>● Demo Admin</strong><small>UI Preview</small>
+                <p><a href="../index.html">↪ Logout / Login</a></p>
+            </div>
+        </aside>
+        <div class="main">
+            <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
+                    aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
+                    aria-label="Search">
+                <div class="top-right"><span>🔔</span>
+                    <div class="avatar">A</div><strong>Admin</strong>
+                </div>
+            </header>
+            <main class="content">
+                <div class="heading">
+                    <div>
+                        <h1>My Dashboard</h1>
+                        <p class="muted">Welcome! Here is your personal overview.</p>
+                    </div>
+                </div>
+                <div class="toast">Employee dashboard visual preview. Personal records will load after login is
+                    implemented.</div>
+                <section class="stats">
+                    <div class="stat">
+                        <div>
+                            <p class="muted">Present Days</p><strong>12</strong><small class="muted">Preview
+                                only</small>
+                        </div><span class="stat-icon">✓</span>
+                    </div>
+                    <div class="stat">
+                        <div>
+                            <p class="muted">Leaves Taken</p><strong>1</strong><small class="muted">Preview only</small>
+                        </div><span class="stat-icon">🌴</span>
+                    </div>
+                    <div class="stat">
+                        <div>
+                            <p class="muted">Late Days</p><strong>0</strong><small class="muted">Preview only</small>
+                        </div><span class="stat-icon">◷</span>
+                    </div>
+                    <div class="stat">
+                        <div>
+                            <p class="muted">Leave Balance</p><strong>19</strong><small class="muted">Preview
+                                only</small>
+                        </div><span class="stat-icon">▣</span>
+                    </div>
+                </section>
+                <div class="grid-two">
+                    <section class="card">
+                        <h2>Quick Actions</h2>
+                        <div class="quick-links"><a href="#attendance">◷ Check In / Check Out</a><a href="#apply">▤
+                                Apply for Leave</a><a href="payslip.html">▣ My Payslip</a></div>
+                    </section>
+                    <section class="card" id="attendance">
+                        <h2>Today's Attendance</h2>
+                        <p><span class="pill">Checked in · 09:12 AM</span></p>
+                        <div class="actions"><button class="btn outline">Check In</button><button class="btn">Check
+                                Out</button></div>
+                        <p class="hint">Buttons are UI-only for now.</p>
+                    </section>
+                </div>
+                <section class="card" id="apply">
+                    <h2>Apply for Leave</h2>
+                    <form class="form-grid" onsubmit="return false">
+                        <div class="field"><label for="type">Leave type</label><select id="type">
+                                <option>Casual</option>
+                                <option>Sick</option>
+                            </select></div>
+                        <div class="field"><label for="from">From</label><input id="from" type="date"></div>
+                        <div class="field"><label for="to">To</label><input id="to" type="date"></div>
+                        <div class="field full"><label for="reason">Reason</label><textarea id="reason" rows="3"
+                                placeholder="Leave reason"></textarea></div>
+                        <div class="field full"><button class="btn" type="submit">Submit Request</button></div>
+                    </form>
+                </section>
+                <section class="card">
+                    <h2>✨ Smart Helper</h2>
+                    <div class="chat"><input aria-label="Ask helper"
+                            placeholder="How many leaves do I have left?"><button class="btn">Send</button></div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="../js/ui.js"></script>
+</body>
+
+</html>
