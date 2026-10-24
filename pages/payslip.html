@@ -1,86 +1,297 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#101f45">
+
     <title>Payslip | HCM Lite</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+
     <div class="mobile-overlay"></div>
+
     <div class="app">
-        <aside class="sidebar" id="sidebar"><a class="brand" href="admin.html"><span class="brand-icon">▣</span> HCM
-                Lite</a>
-            <nav class="nav" aria-label="Main navigation"><a href="admin.html" class=""><span
-                        aria-hidden="true">▦</span> Dashboard</a><a href="employees.html" class=""><span
-                        aria-hidden="true">♙</span> Employees</a><a href="leaves.html" class=""><span
-                        aria-hidden="true">▤</span> Leaves</a><a href="settings.html" class=""><span
-                        aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class=""><span
-                        aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class="active"><span
-                        aria-hidden="true">▣</span> Payslip</a></nav>
-            <div class="sidebar-foot"><strong>● Demo Admin</strong><small>UI Preview</small>
-                <p><a href="../index.html">↪ Logout / Login</a></p>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a class="brand" href="admin.html">
+                <span class="brand-icon">▣</span> HCM Lite
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+
+                <a href="admin.html" class="admin-nav-link">▦ Dashboard</a>
+                <a href="employees.html" class="admin-nav-link">♙ Employees</a>
+                <a href="leaves.html" class="admin-nav-link">▤ Leaves</a>
+                <a href="settings.html" class="admin-nav-link">⚙ Settings</a>
+
+                <a href="employee.html" class="employee-nav-link">
+                    ◷ My Dashboard
+                </a>
+
+                <a href="payslip.html" class="active">
+                    ▣ Payslip
+                </a>
+
+            </nav>
+
+            <div class="sidebar-foot">
+
+                <strong>● <span id="sidebar-user-name">User</span></strong>
+
+                <small id="sidebar-role">Account</small>
+
+                <p>
+                    <a href="../index.html" id="logout-btn">↪ Logout</a>
+                </p>
+
             </div>
+
         </aside>
+
+        <!-- Main -->
         <div class="main">
-            <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
-                    aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
-                    aria-label="Search">
-                <div class="top-right"><span>🔔</span>
-                    <div class="avatar">A</div><strong>Admin</strong>
+
+            <header class="topbar">
+
+                <button
+                    class="menu-toggle"
+                    data-menu
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="sidebar">
+                    ☰
+                </button>
+
+                <div class="top-right">
+
+                    <span aria-hidden="true">🔔</span>
+
+                    <div class="avatar" id="user-avatar">U</div>
+
+                    <strong id="top-user-name">User</strong>
+
                 </div>
+
             </header>
+
             <main class="content">
+
                 <div class="heading">
+
                     <div>
-                        <h1>Payslip</h1>
-                        <p class="muted">View and print monthly salary details.</p>
+                        <h1>Monthly Payslip</h1>
+
+                        <p class="muted">
+                            View salary, attendance deductions and net pay.
+                        </p>
                     </div>
+
                 </div>
-                <div class="toast">Illustrative salary values only. Final payslip will calculate deductions from
-                    attendance.</div>
-                <section class="payslip">
+
+                <p
+                    id="payslip-message"
+                    class="form-message"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+                <!-- Payslip Filters -->
+                <section class="card payslip-controls">
+
+                    <h2>Select Payslip</h2>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="payslip-month">Salary month</label>
+
+                            <input
+                                id="payslip-month"
+                                type="month"
+                                required>
+                        </div>
+
+                        <div class="field" id="employee-selector-field" hidden>
+
+                            <label for="payslip-employee">Employee</label>
+
+                            <select id="payslip-employee">
+                                <option value="">Select employee</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <p class="hint">
+                        Salary and deduction figures are calculated from
+                        saved employee, company and attendance records.
+                    </p>
+
+                </section>
+
+                <!-- Empty State -->
+                <section class="card" id="payslip-empty" hidden>
+
+                    <h2>Payslip unavailable</h2>
+
+                    <p id="payslip-empty-message" class="muted">
+                        No employee has been selected.
+                    </p>
+
+                </section>
+
+                <!-- Actual Payslip -->
+                <section class="payslip" id="payslip-content" hidden>
+
                     <div class="slip-top">
+
                         <div>
-                            <h2>HCM Lite</h2>
+                            <h2 id="slip-company-name">HCM Lite</h2>
+
                             <p class="muted">Monthly Salary Slip</p>
                         </div>
-                        <div><strong>October 2026</strong>
-                            <p class="muted">Employee ID: EMP001</p>
+
+                        <div>
+                            <strong id="slip-period">Month</strong>
+
+                            <p class="muted">
+                                Employee ID:
+                                <span id="slip-employee-id">—</span>
+                            </p>
                         </div>
+
                     </div>
+
+                    <hr>
+
                     <div class="slip-cols">
+
+                        <!-- Employee Information -->
                         <section>
+
                             <h3>Employee Details</h3>
-                            <p>Name: Ali Khan</p>
-                            <p>Department: IT</p>
-                            <p>Designation: Employee</p>
-                            <p>Monthly Salary: Rs. 50,000</p>
+
+                            <p>
+                                Name:
+                                <strong id="slip-employee-name">—</strong>
+                            </p>
+
+                            <p>
+                                Email:
+                                <strong id="slip-employee-email">—</strong>
+                            </p>
+
+                            <p>
+                                Department:
+                                <strong id="slip-department">—</strong>
+                            </p>
+
+                            <p>
+                                Designation:
+                                <strong id="slip-role">Employee</strong>
+                            </p>
+
                         </section>
+
+                        <!-- Salary Calculation -->
                         <section>
+
                             <h3>Salary Calculation</h3>
-                            <p>Basic Salary <strong style="float:right">Rs. 50,000</strong></p>
-                            <p>Absent Days <strong style="float:right">0</strong></p>
-                            <p>Half Days <strong style="float:right">1</strong></p>
-                            <p>Deduction <strong style="float:right">Rs. 1,136.36</strong></p>
-                            <div class="total"><span>Net Salary</span><span>Rs. 48,863.64</span></div>
+
+                            <p>
+                                Basic Salary
+                                <strong id="slip-monthly-salary" style="float:right">
+                                    Rs. 0.00
+                                </strong>
+                            </p>
+
+                            <p>
+                                Working Days in Month
+                                <strong id="slip-working-days" style="float:right">
+                                    0
+                                </strong>
+                            </p>
+
+                            <p>
+                                Salary Per Day
+                                <strong id="slip-daily-rate" style="float:right">
+                                    Rs. 0.00
+                                </strong>
+                            </p>
+
+                            <p>
+                                Absent Days
+                                <strong id="slip-absent-days" style="float:right">
+                                    0
+                                </strong>
+                            </p>
+
+                            <p>
+                                Half Days
+                                <strong id="slip-half-days" style="float:right">
+                                    0
+                                </strong>
+                            </p>
+
+                            <p>
+                                Deduction
+                                <strong id="slip-deduction" style="float:right">
+                                    Rs. 0.00
+                                </strong>
+                            </p>
+
+                            <div class="total">
+
+                                <span>Net Salary</span>
+
+                                <span id="slip-net-salary">
+                                    Rs. 0.00
+                                </span>
+
+                            </div>
+
                         </section>
+
                     </div>
+
+                    <p class="hint">
+                        Completed working days without attendance records
+                        count as absent, according to the assignment rules.
+                        The current day and future dates are not counted
+                        as absent yet.
+                    </p>
+
                 </section>
-                <div class="actions"><button class="btn" data-print>🖨 Print / Save as PDF</button></div>
-                <p class="hint">Print button works. Monthly salary calculation is added in the JavaScript phase.</p>
+
+                <!-- Print Button -->
+                <div class="actions payslip-actions" id="payslip-actions" hidden>
+
+                    <button class="btn" type="button" data-print>
+                        🖨 Print / Save as PDF
+                    </button>
+
+                </div>
+
             </main>
+
         </div>
+
     </div>
+
+    <!-- JavaScript -->
     <script src="../js/storage.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/ui.js"></script>
-    <script>
-        requireAuth();
-    </script>
-</body>
+    <script src="../js/payslip.js"></script>
 
+</body>
 </html>

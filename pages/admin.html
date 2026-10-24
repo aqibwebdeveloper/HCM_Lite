@@ -1,114 +1,318 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#101f45">
+
     <title>Dashboard | HCM Lite</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+
     <div class="mobile-overlay"></div>
+
     <div class="app">
-        <aside class="sidebar" id="sidebar"><a class="brand" href="admin.html"><span class="brand-icon">▣</span> HCM
-                Lite</a>
-            <nav class="nav" aria-label="Main navigation"><a href="admin.html" class="active"><span
-                        aria-hidden="true">▦</span> Dashboard</a><a href="employees.html" class=""><span
-                        aria-hidden="true">♙</span> Employees</a><a href="leaves.html" class=""><span
-                        aria-hidden="true">▤</span> Leaves</a><a href="settings.html" class=""><span
-                        aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class=""><span
-                        aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class=""><span
-                        aria-hidden="true">▣</span> Payslip</a></nav>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a class="brand" href="admin.html">
+                <span class="brand-icon">▣</span> HCM Lite
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+
+                <a href="admin.html" class="active">
+                    <span aria-hidden="true">▦</span>
+                    Dashboard
+                </a>
+
+                <a href="employees.html">
+                    <span aria-hidden="true">♙</span>
+                    Employees
+                </a>
+
+                <a href="leaves.html">
+                    <span aria-hidden="true">▤</span>
+                    Leaves
+                </a>
+
+                <a href="settings.html">
+                    <span aria-hidden="true">⚙</span>
+                    Settings
+                </a>
+
+                <a href="employee.html">
+                    <span aria-hidden="true">◷</span>
+                    Employee View
+                </a>
+
+                <a href="payslip.html">
+                    <span aria-hidden="true">▣</span>
+                    Payslip
+                </a>
+
+            </nav>
+
+            <!-- Admin Profile -->
             <div class="sidebar-foot">
-                <strong>● <span id="sidebar-admin-name">Admin</span></strong>
+
+                <strong>
+                    ● <span id="sidebar-admin-name">Admin</span>
+                </strong>
+
                 <small>Administrator</small>
 
                 <p>
                     <a href="#" id="logout-btn">↪ Logout</a>
                 </p>
+
             </div>
+
         </aside>
+
+        <!-- Main Area -->
         <div class="main">
-            <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
-                    aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
+
+            <!-- Topbar -->
+            <header class="topbar">
+
+                <button
+                    class="menu-toggle"
+                    data-menu
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="sidebar">
+                    ☰
+                </button>
+
+                <input
+                    class="search"
+                    type="search"
+                    placeholder="Search HCM Lite"
                     aria-label="Search">
+
                 <div class="top-right">
-                    <span>🔔</span>
+
+                    <span aria-hidden="true">🔔</span>
 
                     <div class="avatar" id="admin-avatar">A</div>
 
                     <strong id="top-admin-name">Admin</strong>
+
                 </div>
+
             </header>
+
+            <!-- Dashboard Content -->
             <main class="content">
+
                 <div class="heading">
+
                     <div>
                         <h1>Dashboard</h1>
-                        <p class="muted">Welcome back! Here is your company overview.</p>
+
+                        <p class="muted">
+                            Welcome back! Here is your company overview.
+                        </p>
                     </div>
+
                 </div>
-                <div class="toast">Design preview: numbers below are examples, not stored records. The real app starts
-                    empty.</div>
+
+                <div class="toast">
+                    Dashboard statistics are calculated from saved employee,
+                    attendance and approved leave records.
+                </div>
+
+                <!-- Statistics Cards -->
                 <section class="stats">
+
+                    <!-- Total Employees -->
                     <div class="stat">
+
                         <div>
-                            <p class="muted">Total Employees</p><strong>42</strong><small class="muted">Preview
-                                only</small>
-                        </div><span class="stat-icon">👥</span>
-                    </div>
-                    <div class="stat">
-                        <div>
-                            <p class="muted">Present Today</p><strong>35</strong><small class="muted">Preview
-                                only</small>
-                        </div><span class="stat-icon">✓</span>
-                    </div>
-                    <div class="stat">
-                        <div>
-                            <p class="muted">On Leave</p><strong>5</strong><small class="muted">Preview only</small>
-                        </div><span class="stat-icon">🌴</span>
-                    </div>
-                    <div class="stat">
-                        <div>
-                            <p class="muted">Late Today</p><strong>2</strong><small class="muted">Preview only</small>
-                        </div><span class="stat-icon">◷</span>
-                    </div>
-                </section>
-                <div class="grid-two">
-                    <section class="card">
-                        <h2>Attendance Overview</h2>
-                        <div class="chart-placeholder">
-                            <div class="bars"><span style="height:68%"></span><span style="height:88%"></span><span
-                                    style="height:55%"></span><span style="height:95%"></span><span
-                                    style="height:75%"></span><span style="height:60%"></span></div>
+                            <p class="muted">Total Employees</p>
+
+                            <strong id="total-employees">0</strong>
+
+                            <small class="muted">
+                                Registered employees
+                            </small>
                         </div>
-                        <p class="hint">Sample chart visualization</p>
-                    </section>
-                    <section class="card">
-                        <h2>Today's Summary</h2>
-                        <p>🟢 Present <strong style="float:right">35</strong></p>
-                        <hr>
-                        <p>🟠 Late <strong style="float:right">2</strong></p>
-                        <hr>
-                        <p>🔴 On Leave <strong style="float:right">5</strong></p>
-                    </section>
-                </div>
-                <section class="card">
-                    <h2>✨ Smart Helper</h2>
-                    <p class="muted">Ask about employees, attendance, or leave balances.</p>
-                    <div class="chat" style="margin-top:15px"><input aria-label="Ask helper"
-                            placeholder="How many employees do we have?"><button class="btn" type="button">Send</button>
+
+                        <span class="stat-icon">👥</span>
+
                     </div>
-                    <p class="hint">Smart helper responses will be implemented with JavaScript.</p>
+
+                    <!-- Present Today -->
+                    <div class="stat">
+
+                        <div>
+                            <p class="muted">Present Today</p>
+
+                            <strong id="present-today">0</strong>
+
+                            <small class="muted">
+                                Attendance recorded
+                            </small>
+                        </div>
+
+                        <span class="stat-icon">✓</span>
+
+                    </div>
+
+                    <!-- On Leave -->
+                    <div class="stat">
+
+                        <div>
+                            <p class="muted">On Leave</p>
+
+                            <strong id="on-leave-today">0</strong>
+
+                            <small class="muted">
+                                Approved leave today
+                            </small>
+                        </div>
+
+                        <span class="stat-icon">🌴</span>
+
+                    </div>
+
+                    <!-- Late Today -->
+                    <div class="stat">
+
+                        <div>
+                            <p class="muted">Late Today</p>
+
+                            <strong id="late-today">0</strong>
+
+                            <small class="muted">
+                                Late check-ins
+                            </small>
+                        </div>
+
+                        <span class="stat-icon">◷</span>
+
+                    </div>
+
                 </section>
+
+                <!-- Attendance Overview and Summary -->
+                <div class="grid-two">
+
+                    <!-- Chart Preview -->
+                    <section class="card">
+
+                        <h2>Attendance Overview</h2>
+
+                        <div class="chart-placeholder">
+
+                            <div class="bars">
+                                <span style="height:68%"></span>
+                                <span style="height:88%"></span>
+                                <span style="height:55%"></span>
+                                <span style="height:95%"></span>
+                                <span style="height:75%"></span>
+                                <span style="height:60%"></span>
+                            </div>
+
+                        </div>
+
+                        <p class="hint">
+                            Chart is currently a visual preview.
+                            Dashboard statistics above use saved records.
+                        </p>
+
+                    </section>
+
+                    <!-- Today's Summary -->
+                    <section class="card">
+
+                        <h2>Today's Summary</h2>
+
+                        <p>
+                            🟢 Present
+
+                            <strong id="summary-present" style="float:right">
+                                0
+                            </strong>
+                        </p>
+
+                        <hr>
+
+                        <p>
+                            🟠 Late
+
+                            <strong id="summary-late" style="float:right">
+                                0
+                            </strong>
+                        </p>
+
+                        <hr>
+
+                        <p>
+                            🔴 On Leave
+
+                            <strong id="summary-leave" style="float:right">
+                                0
+                            </strong>
+                        </p>
+
+                    </section>
+
+                </div>
+
+                <!-- Smart Helper -->
+                <section class="card">
+
+                    <h2>✨ Smart Helper</h2>
+
+                    <p class="muted">
+                        Ask questions about employees, attendance or leaves.
+                    </p>
+
+                    <div class="chat" style="margin-top:15px">
+
+                        <input
+                            id="helper-question"
+                            type="text"
+                            aria-label="Ask Smart Helper"
+                            placeholder="How many employees do we have?">
+
+                        <button
+                            class="btn"
+                            id="helper-send"
+                            type="button">
+                            Send
+                        </button>
+
+                    </div>
+
+                    <p
+                        class="hint"
+                        id="helper-answer"
+                        role="status"
+                        aria-live="polite">
+                    </p>
+
+                </section>
+
             </main>
+
         </div>
+
     </div>
+
+    <!-- JavaScript Files -->
     <script src="../js/storage.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/ui.js"></script>
     <script src="../js/admin.js"></script>
-</body>
 
+</body>
 </html>

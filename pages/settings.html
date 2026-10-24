@@ -1,73 +1,213 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#101f45">
+
     <title>Company Settings | HCM Lite</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
+
     <div class="mobile-overlay"></div>
+
     <div class="app">
-        <aside class="sidebar" id="sidebar"><a class="brand" href="admin.html"><span class="brand-icon">▣</span> HCM
-                Lite</a>
-            <nav class="nav" aria-label="Main navigation"><a href="admin.html" class=""><span
-                        aria-hidden="true">▦</span> Dashboard</a><a href="employees.html" class=""><span
-                        aria-hidden="true">♙</span> Employees</a><a href="leaves.html" class=""><span
-                        aria-hidden="true">▤</span> Leaves</a><a href="settings.html" class="active"><span
-                        aria-hidden="true">⚙</span> Settings</a><a href="employee.html" class=""><span
-                        aria-hidden="true">◷</span> Employee View</a><a href="payslip.html" class=""><span
-                        aria-hidden="true">▣</span> Payslip</a></nav>
-            <div class="sidebar-foot"><strong>● Demo Admin</strong><small>UI Preview</small>
-                <p><a href="../index.html">↪ Logout / Login</a></p>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <a class="brand" href="admin.html">
+                <span class="brand-icon">▣</span> HCM Lite
+            </a>
+
+            <nav class="nav" aria-label="Main navigation">
+
+                <a href="admin.html">▦ Dashboard</a>
+                <a href="employees.html">♙ Employees</a>
+                <a href="leaves.html">▤ Leaves</a>
+                <a href="settings.html" class="active">⚙ Settings</a>
+                <a href="employee.html">◷ Employee View</a>
+                <a href="payslip.html">▣ Payslip</a>
+
+            </nav>
+
+            <div class="sidebar-foot">
+
+                <strong>
+                    ● <span id="sidebar-admin-name">Admin</span>
+                </strong>
+
+                <small>Administrator</small>
+
+                <p>
+                    <a href="../index.html" id="logout-btn">
+                        ↪ Logout
+                    </a>
+                </p>
+
             </div>
+
         </aside>
+
+        <!-- Main Content -->
         <div class="main">
-            <header class="topbar"><button class="menu-toggle" data-menu aria-label="Open menu" aria-expanded="false"
-                    aria-controls="sidebar">☰</button><input class="search" placeholder="Search (UI preview)"
-                    aria-label="Search">
-                <div class="top-right"><span>🔔</span>
-                    <div class="avatar">A</div><strong>Admin</strong>
+
+            <header class="topbar">
+
+                <button
+                    class="menu-toggle"
+                    data-menu
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="sidebar">
+                    ☰
+                </button>
+
+                <input
+                    class="search"
+                    placeholder="Company settings"
+                    aria-label="Company settings"
+                    readonly>
+
+                <div class="top-right">
+
+                    <span aria-hidden="true">🔔</span>
+
+                    <div class="avatar" id="admin-avatar">A</div>
+
+                    <strong id="top-admin-name">Admin</strong>
+
                 </div>
+
             </header>
+
             <main class="content">
+
                 <div class="heading">
                     <div>
                         <h1>Company Settings</h1>
-                        <p class="muted">Configure office rules and leave allowances.</p>
+
+                        <p class="muted">
+                            Configure office rules and leave allowances.
+                        </p>
                     </div>
                 </div>
+
+                <!-- Success / Error Message -->
+                <p
+                    id="settings-message"
+                    class="form-message"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+                <!-- Settings Form -->
                 <section class="card">
+
                     <h2>Company Information & Attendance Rules</h2>
-                    <form class="form-grid" onsubmit="return false">
-                        <div class="field"><label for="company">Company name</label><input id="company"
-                                value="HCM Lite Demo"></div>
-                        <div class="field"><label for="start">Office start time</label><input id="start" type="time"
-                                value="09:00"></div>
-                        <div class="field"><label for="grace">Grace minutes</label><input id="grace" type="number"
-                                value="15" min="0"></div>
-                        <div class="field"><label for="days">Working days</label><select id="days">
-                                <option>Monday – Friday</option>
-                                <option>Monday – Saturday</option>
-                            </select></div>
-                        <div class="field"><label for="quota">Yearly leave quota</label><input id="quota" type="number"
-                                value="20" min="0"></div>
-                        <div class="field full"><button class="btn" type="submit">Save Settings</button></div>
+
+                    <form id="settings-form" class="form-grid">
+
+                        <div class="field">
+
+                            <label for="company">Company name</label>
+
+                            <input
+                                id="company"
+                                type="text"
+                                maxlength="100"
+                                placeholder="Your company name"
+                                required>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="start">Office start time</label>
+
+                            <input
+                                id="start"
+                                type="time"
+                                required>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="grace">Grace minutes</label>
+
+                            <input
+                                id="grace"
+                                type="number"
+                                min="0"
+                                step="1"
+                                required>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="days">Working days</label>
+
+                            <select id="days" required>
+
+                                <option value="mon-fri">
+                                    Monday – Friday
+                                </option>
+
+                                <option value="mon-sat">
+                                    Monday – Saturday
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="quota">Yearly leave quota</label>
+
+                            <input
+                                id="quota"
+                                type="number"
+                                min="0"
+                                step="1"
+                                required>
+
+                        </div>
+
+                        <div class="field full">
+
+                            <button class="btn" type="submit">
+                                Save Settings
+                            </button>
+
+                        </div>
+
                     </form>
-                    <p class="hint">These values are examples; saving will be implemented using localStorage.</p>
+
+                    <p class="hint">
+                        Settings are saved in this browser using localStorage.
+                    </p>
+
                 </section>
+
             </main>
+
         </div>
+
     </div>
+
+    <!-- JavaScript Files -->
     <script src="../js/storage.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/ui.js"></script>
-    <script>
-        requireAuth("admin");
-    </script>
-</body>
+    <script src="../js/settings.js"></script>
 
+</body>
 </html>

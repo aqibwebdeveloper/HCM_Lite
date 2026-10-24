@@ -877,3 +877,14 @@ tr:last-child td {
         width: 140px;
     }
 }
+
+/* Company Settings Messages */
+
+#settings-message.success {
+    color: #15803d;
+}
+
+#settings-message:not(:empty) {
+    margin: 12px 0;
+    line-height: 1.5;
+}
